@@ -1,6 +1,6 @@
 export const metadata = {
   title: 'Products',
-  description: 'Ecommerce project to simulate a store selling cookies',
+  description: 'Page showcasing the products on offer',
 };
 
 export default function ProductsPage() {
