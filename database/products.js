@@ -17,14 +17,14 @@ const products = [
   },
   {
     id: 3,
-    name: 'Sugar Cookies',
+    name: 'Ginger Cookies',
     type: 'cookie',
     count: 1,
     price: 8,
   },
   {
     id: 4,
-    name: 'Sour-dough Loaf',
+    name: 'Sourdough Loaf',
     type: 'bread',
     count: 1,
     price: 15,
