@@ -6,6 +6,7 @@ export default function RootError() {
   return (
     <div>
       <div>Error! Something went wrong!</div>
+      <br />
       <Link href="/">Return Home</Link>
     </div>
   );

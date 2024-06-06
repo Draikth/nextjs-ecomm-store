@@ -29,6 +29,10 @@ export default function ProductsPage() {
           );
         })}
       </div>
+      <br />
+      <div>
+        <Link href="/">Back to Home page</Link>
+      </div>
     </div>
   );
 }

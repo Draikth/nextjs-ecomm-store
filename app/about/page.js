@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 export const metadata = {
   title: 'About',
   description: 'Page about the Ecommerce Store',
@@ -27,6 +29,10 @@ export default function AboutPage() {
         nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
         sed diam voluptua. At vero eos et accusam et
       </p>
+      <br />
+      <div>
+        <Link href="/">Back to Home page</Link>
+      </div>
     </div>
   );
 }

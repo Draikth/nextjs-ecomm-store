@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import { getProduct } from '../../../database/products';
 
 export default function ProductPage(props) {
@@ -29,6 +30,10 @@ export default function ProductPage(props) {
         </p>
         <br />
         <div>placeholder for where placing orders will occur</div>
+      </div>
+      <br />
+      <div>
+        <Link href="/">Back to Home page</Link>
       </div>
     </div>
   );

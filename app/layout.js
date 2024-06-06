@@ -15,7 +15,7 @@ const geistMono = localFont({
 
 export const metadata = {
   title: {
-    default: 'Cookie-Bake | Uplvl Ecomm Proj',
+    default: "Oma's Kitchen Bakery | Uplvl Ecomm Proj",
     template: '%s | Uplvl Ecomm Proj',
   },
   description: 'Ecommerce project to simulate a store selling cookies',
