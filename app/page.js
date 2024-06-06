@@ -1,8 +1,12 @@
 export default function Home() {
   return (
     <div>
-      <h1>Cookie Home Page</h1>
-      <p>home page of the cookie bake Ecommerce store proj.</p>
+      <h1>Welcome to Oma's Kitchen Bakery!</h1>
+      <p>Baked Goodies to remind you of your Oma! </p>
+      <ul>
+        <li>About</li>
+        <li>Products</li>
+      </ul>
     </div>
   );
 }
