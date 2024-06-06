@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { getProducts } from '../../database/products';
 
 export const metadata = {
@@ -15,7 +16,12 @@ export default function ProductsPage() {
           return (
             <div key={`products-${product.id}`}>
               <div>{product.name}</div>
-              <img src="/" alt="" />
+              <Image
+                src={`/images/${product.image}.webp`}
+                alt={`product-${product.name}`}
+                width={250}
+                height={250}
+              />
             </div>
           );
         })}
