@@ -32,6 +32,8 @@ export default function ProductPage(props) {
         <div>placeholder for where placing orders will occur</div>
       </div>
       <br />
+      <Link href="/products">Back to Products page</Link>
+      <br />
       <div>
         <Link href="/">Back to Home page</Link>
       </div>
