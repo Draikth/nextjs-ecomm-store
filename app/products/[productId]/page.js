@@ -1,9 +1,23 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import { notFound } from 'next/navigation';
 import { getProduct } from '../../../database/products';
+
+export function generateMetaData(props) {
+  const singleProduct = getProduct(Number(props.params.productId));
+
+  return {
+    title: singleProduct?.name,
+    description: 'Single Product Page',
+  };
+}
 
 export default function ProductPage(props) {
   const singleProduct = getProduct(Number(props.params.productId));
+
+  if (!singleProduct) {
+    notFound();
+  }
 
   console.log('props: ', singleProduct);
 
