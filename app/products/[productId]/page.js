@@ -3,8 +3,8 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { getProduct } from '../../../database/products';
 
-export function generateMetaData(props) {
-  const singleProduct = getProduct(Number(props.params.productId));
+export async function generateMetadata(props) {
+  const singleProduct = await getProduct(Number(props.params.productId));
 
   return {
     title: singleProduct?.name,

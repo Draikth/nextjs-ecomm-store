@@ -13,6 +13,7 @@ export default function ProductsPage() {
     <div>
       <h1>These Are Our Currently Available Products</h1>
       <div>
+        <br />
         {products.map((product) => {
           return (
             <div key={`products-${product.id}`}>
@@ -28,6 +29,7 @@ export default function ProductsPage() {
             </div>
           );
         })}
+        <br />
       </div>
       <br />
       <div>
