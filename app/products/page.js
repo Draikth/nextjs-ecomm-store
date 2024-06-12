@@ -1,14 +1,14 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { getProducts } from '../../database/products';
+import { getProductsInsecure } from '../../database/products';
 
 export const metadata = {
   title: 'Products',
   description: 'Page showcasing the products on offer',
 };
 
-export default function ProductsPage() {
-  const products = getProducts();
+export default async function ProductsPage() {
+  const products = await getProductsInsecure();
   return (
     <div>
       <h1>These Are Our Currently Available Products</h1>

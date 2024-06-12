@@ -9,6 +9,11 @@ CREATE TABLE products (
 INSERT INTO products
 (name, type, image, price)
 VALUES
+('Chocolate-Chip Cookies', 'cookie', 'chocolate-chip-cookies', 12),
+('Oatmeal Cookies', 'cookie', 'oatmeal-cookies', 10),
+('Ginger Cookies', 'cookie', 'ginger-cookies', 8),
+('Sourdough Loaf', 'bread', 'sourdough-loaf', 15),
+('Carrot Cake', 'cake', 'carrot-cake', 20),
 
 
 CREATE DATABASE nextjs_ecomm_store;

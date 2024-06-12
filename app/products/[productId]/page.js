@@ -1,10 +1,12 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { getProduct } from '../../../database/products';
+import { getProductInsecure } from '../../../database/products';
 
 export async function generateMetadata(props) {
-  const singleProduct = await getProduct(Number(props.params.productId));
+  const singleProduct = await getProductInsecure(
+    Number(props.params.productId),
+  );
 
   return {
     title: singleProduct?.name,
@@ -12,8 +14,10 @@ export async function generateMetadata(props) {
   };
 }
 
-export default function ProductPage(props) {
-  const singleProduct = getProduct(Number(props.params.productId));
+export default async function ProductPage(props) {
+  const singleProduct = await getProductInsecure(
+    Number(props.params.productId),
+  );
 
   if (!singleProduct) {
     notFound();
