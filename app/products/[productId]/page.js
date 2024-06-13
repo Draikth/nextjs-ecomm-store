@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { getProductInsecure } from '../../../database/products';
+import OrderQuantity from './orderQuantity';
 
 export async function generateMetadata(props) {
   const singleProduct = await getProductInsecure(
@@ -47,7 +48,10 @@ export default async function ProductPage(props) {
           sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
         </p>
         <br />
-        <div>placeholder for where placing orders will occur</div>
+        <div>Price: {singleProduct.price}</div>
+        <div>
+          <OrderQuantity />
+        </div>
       </div>
       <br />
       <Link href="/products">Back to Products page</Link>

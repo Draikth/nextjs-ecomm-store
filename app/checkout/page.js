@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import CheckoutForm from './checkoutForm';
 
 export const metadata = {
   title: 'Checkout Page',
@@ -9,10 +10,15 @@ export default function CheckoutPage() {
   return (
     <div>
       <h1>Checkout</h1>
-      <p>
-        Processing of payment for selected items in cart, will have to deal with
-        secure information such as credit card and banking info etc.
-      </p>
+      <br />
+      <br />
+      <div>
+        <CheckoutForm />
+      </div>
+      <br />
+      <div>
+        <Link href="/cart">Back to Cart</Link>
+      </div>
       <br />
       <div>
         <Link href="/">Back to Home page</Link>
