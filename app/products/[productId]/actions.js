@@ -10,14 +10,22 @@ export default function OrderQuantity() {
   };
 
   const handleDecrease = () => {
-    setOrderNumber(orderNumber - 1);
+    if (orderNumber < 1) {
+      setOrderNumber(1);
+    } else {
+      setOrderNumber(orderNumber - 1);
+    }
   };
 
   return (
     <form>
-      <button onClick={handleIncrease}>More</button>
+      <button formAction={async () => await handleIncrease()}>More</button>
       <input type="number" value={orderNumber} />
-      <button onClick={handleDecrease}>Less</button>
+      <button formAction={async () => await handleDecrease()}>Less</button>
+      <br />
+      <div>Total Cost: </div>
+      <br />
+      <br />
       <button>Add to Cart</button>
     </form>
   );
