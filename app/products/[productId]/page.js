@@ -56,6 +56,7 @@ export default async function ProductPage(props) {
       <br />
       <Link href="/products">Back to Products page</Link>
       <br />
+      <br />
       <div>
         <Link href="/">Back to Home page</Link>
       </div>
