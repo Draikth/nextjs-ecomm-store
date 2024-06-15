@@ -2,7 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { getProductInsecure } from '../../../database/products';
-import OrderQuantity from './actions';
+import OrderQuantity from './orderQuantity';
 
 export async function generateMetadata(props) {
   const singleProduct = await getProductInsecure(
