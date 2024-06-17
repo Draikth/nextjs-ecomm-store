@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 export const metadata = {
   title: 'Thank you for your order',
-  description: 'Page for information on products intended for purchase',
+  description: 'Page thanking user for purchasing from store',
 };
 
 export default function ThankYouPage() {

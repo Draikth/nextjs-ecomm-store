@@ -7,12 +7,12 @@ const sql = postgres();
 
 console.log(
   await sql`
-  SELECT
-    *
-  FROM
-    products
- `,
+    SELECT
+      *
+    FROM
+      products
+  `,
 );
 
 // for when testing on local
-// await sql.end();
+await sql.end();
