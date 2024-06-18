@@ -1,8 +1,11 @@
 'use client';
 
+import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 
 export default function CheckoutForm() {
+  const router = useRouter();
+
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
@@ -13,6 +16,21 @@ export default function CheckoutForm() {
   const [creditCardNo, setCreditCardNo] = useState('');
   const [expiration, setExpiration] = useState('');
   const [security, setSecurity] = useState('');
+
+  function clearAllInputFields() {
+    setFirstName('');
+    setLastName('');
+    setEmail('');
+    setAddress('');
+    setCity('');
+    setPostalCode('');
+    setCountry('');
+    setCreditCardNo('');
+    setExpiration('');
+    setSecurity('');
+
+    router.push('/thank-you');
+  }
 
   return (
     <div>
@@ -50,7 +68,6 @@ export default function CheckoutForm() {
             data-test-id="checkout-email"
             name="email"
             placeholder="email"
-            type="email"
             value={email}
             onChange={(event) => setEmail(event.currentTarget.value)}
             required
@@ -89,7 +106,6 @@ export default function CheckoutForm() {
             id="postal code"
             data-test-id="checkout-postal-code"
             name="postal code"
-            type="number"
             placeholder="postal code"
             value={postalCode}
             onChange={(event) => setPostalCode(event.currentTarget.value)}
@@ -116,7 +132,6 @@ export default function CheckoutForm() {
             id="credit card"
             data-test-id="checkout-credit-card"
             name="credit card"
-            type="number"
             placeholder="credit card no."
             value={creditCardNo}
             onChange={(event) => setCreditCardNo(event.currentTarget.value)}
@@ -130,8 +145,7 @@ export default function CheckoutForm() {
             id="expiration"
             data-test-id="checkout-expiration-date"
             name="expiration"
-            type="date"
-            placeholder="expiration date"
+            placeholder="mm/yy"
             value={expiration}
             onChange={(event) => setExpiration(event.currentTarget.value)}
             required
@@ -144,7 +158,6 @@ export default function CheckoutForm() {
             id="security"
             data-test-id="checkout-security-code"
             name="security"
-            type="number"
             placeholder="security code"
             value={security}
             onChange={(event) => setSecurity(event.currentTarget.value)}
@@ -153,7 +166,23 @@ export default function CheckoutForm() {
         </div>
         <br />
         <br />
-        <button>Confirm Order</button>
+        <button
+          onClick={clearAllInputFields}
+          disabled={
+            !firstName ||
+            !lastName ||
+            !email ||
+            !address ||
+            !city ||
+            !postalCode ||
+            !country ||
+            !creditCardNo ||
+            !expiration ||
+            !security
+          }
+        >
+          Confirm Order
+        </button>
       </form>
     </div>
   );

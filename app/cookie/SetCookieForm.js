@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { createCookie } from './actions.js';
+import { createCookie } from './actions.ts';
 
 export default function SetCookieForm() {
   const [cookieValue, setCookieValue] = useState(0);
