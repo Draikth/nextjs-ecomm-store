@@ -50,7 +50,7 @@ export default async function ProductPage(props) {
         <br />
         <div>Price: {singleProduct.price}</div>
         <div>
-          <OrderQuantity price={singleProduct.price} />
+          <OrderQuantity price={singleProduct.price} name={singleProduct.name} id={singleProduct.id} />
         </div>
       </div>
       <br />

@@ -1,8 +1,9 @@
 'use client';
 
 import { useState } from 'react';
+import { addToCart } from './actions';
 
-export default function OrderQuantity({ price }) {
+export default function OrderQuantity({ price, name, id }) {
   const [orderNumber, setOrderNumber] = useState(1);
 
   const handleIncrease = () => {
@@ -18,6 +19,8 @@ export default function OrderQuantity({ price }) {
   };
 
   const totalCost = orderNumber * price;
+  const prodName = name;
+  const prodId = id;
 
   return (
     <form>
@@ -28,7 +31,15 @@ export default function OrderQuantity({ price }) {
       <div>Total Cost: {totalCost} </div>
       <br />
       <br />
-      <button>Add to Cart</button>
+      <button
+        data-test-id="product-add-to-cart"
+        formAction={async () => {
+          await addToCart(prodId, orderNumber);
+          alert(`${orderNumber} ${prodName} added to cart! `);
+        }}
+      >
+        Add to Cart
+      </button>
     </form>
   );
 }
