@@ -3,39 +3,44 @@
 import { cookies } from 'next/headers';
 import { getCookie } from '../../../util/cookies';
 
-// Case A: cookie is undefined (not set)
-// Case B: cookie set, id doesn't exist yet
-// Case C: cookie set, id exists already
-
-export type ProductQuant = {
+// Define an interface for the product
+interface Product {
   id: number;
-  quantity: string;
-};
+  quantity: number;
+  name: string;
+  price: number;
+}
 
-export async function addToCart(singleProductId: number, quantity: string) {
-  // 1. get current cookie
+// Define the type for the product quantity cookie
+type ProductQuantities = Product[];
+
+// Define the parameters for the addToCart function
+export async function addToCart(
+  singleProductId: number,
+  quantity: number,
+  name: string,
+  price: number,
+): Promise<void> {
   const productQuantityCookie = getCookie('Cart');
+  let productQuantities: ProductQuantities = [];
 
-  // 2. parse the cookie value
-  const productQuantities: ProductQuant[] = !productQuantityCookie
-    ? // Case A: cookie is undefined
-      []
-    : JSON.parse(productQuantityCookie) || [];
-  // Empty array in case JSON.parse has an error
+  try {
+    productQuantities = productQuantityCookie
+      ? (JSON.parse(productQuantityCookie) as ProductQuantities)
+      : [];
+  } catch (error) {
+    console.error('Failed to parse product quantity cookie', error);
+  }
 
-  // 3. edit the cookie value
-  const productToUpdate = productQuantities.find((productQuantity) => {
-    return productQuantity.id === singleProductId;
-  });
+  const productToUpdate = productQuantities.find(
+    (productQuantity) => productQuantity.id === singleProductId,
+  );
 
-  // Case B: cookie set, id doesn't exist yet
   if (!productToUpdate) {
-    productQuantities.push({ id: singleProductId, quantity: quantity });
+    productQuantities.push({ id: singleProductId, quantity, name, price });
   } else {
-    // Case C: cookie set, id exists already
     productToUpdate.quantity = quantity;
   }
 
-  // 4. we override the cookie
   await cookies().set('Cart', JSON.stringify(productQuantities));
 }
