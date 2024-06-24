@@ -1,5 +1,7 @@
-import Link from 'next/link';
-import { getCart } from '../../util/cart';
+//import Link from 'next/link';
+//import { getCart } from '../../util/cart';
+//import CartClientComponent from './cartClientComponent';
+import CartForm from './Cartform';
 
 export const metadata = {
   title: 'Shopping Cart',
@@ -7,70 +9,48 @@ export const metadata = {
 };
 
 export default function CartPage() {
-  const cartItems = getCart();
+  //   const cartItems = getCart();
 
-  const totalPrice = cartItems.reduce((total, item) => {
-    return total + item.quantity * item.price;
-  }, 0);
+  //   const totalPrice = cartItems.reduce((total, item) => {
+  //     return total + item.quantity * item.price;
+  //   }, 0);
+
+  //   console.log(cartItems);
 
   return (
-    <div>
-      <h1>Shopping Cart</h1>
-      <p>
-        Here products selected for purchase as well as total price of products
-        can be reviewed before checkout
-      </p>
-      <br />
-      <div>
-        {cartItems.length === 0 ? (
-          <p>Your cart is empty.</p>
-        ) : (
-          cartItems.map((item) => (
-            <div key={`${item.id}`}>
-              <p>{item.name}</p>
-              <p>Quantity: {item.quantity}</p>
-              <p>Price: ${item.price}</p>
-            </div>
-          ))
-        )}
-      </div>
-      <br />
-      <div>Total Price: ${totalPrice}</div>
-      <br />
-      <div>
-        <Link href="/">Back to Home page</Link>
-      </div>
-    </div>
+    <CartForm />
+
+    //   <div>
+    //     <h1>Shopping Cart</h1>
+    //     <p>
+    //       Here products selected for purchase as well as total price of products
+    //       can be reviewed before checkout
+    //     </p>
+    //     <br />
+    //     <CartClientComponent cartItems={cartItems} totalPrice={totalPrice} />
+    //     <br />
+    //     <div>
+    //       <Link href="/">Back to Home page</Link>
+    //     </div>
+    //   </div>
   );
 }
 
-// tried something else, ended up being more for react than next.js
-
+// import Image from 'next/image';
 // import Link from 'next/link';
-// import { getProductInsecure } from '../../database/products';
-// import { getCartItems } from '../../util/cart';
+// import { getCart } from '../../util/cart';
 
 // export const metadata = {
 //   title: 'Shopping Cart',
 //   description: 'Page for information on products intended for purchase',
 // };
 
-// export default async function CartPage() {
-//   const cartItems = getCartItems();
-//   const products = await Promise.all(
-//     cartItems.map(async (item) => {
-//       const product = await getProductInsecure(item.id);
-//       return {
-//         ...product,
-//         quantity: item.quantity,
-//       };
-//     }),
-//   );
+// export default function CartPage() {
+//   const cartItems = getCart();
 
-//   const totalPrice = products.reduce(
-//     (total, product) => total + product.price * product.quantity,
-//     0,
-//   );
+//   const totalPrice = cartItems.reduce((total, item) => {
+//     return total + item.quantity * item.price;
+//   }, 0);
 
 //   return (
 //     <div>
@@ -84,20 +64,26 @@ export default function CartPage() {
 //         {cartItems.length === 0 ? (
 //           <p>Your cart is empty.</p>
 //         ) : (
-//           cartItems.map((product) => (
-//             <div key={`${product.id}`}>
-//               <h2>{product.name}</h2>
-//               <p>Quantity: {product.quantity}</p>
-//               <p>Price: {product.price}</p>
-//               <p>Subtotal: {product.price * product.quantity}</p>
+//           cartItems.map((item) => (
+//             <div key={`${item.id}`}>
+//               <p>{item.name}</p>
+//               <Image
+//                 src={`/images/${item.image}.webp`}
+//                 alt={`product-${item.name}`}
+//                 width={150}
+//                 height={150}
+//               />
+//               <p>Quantity: {item.quantity}</p>
+//               <p>Price: ${item.price}</p>
 //             </div>
 //           ))
 //         )}
 //       </div>
+//       <div>
+//         <button>Clear Cookies</button>
+//       </div>
 //       <br />
-//       <div>Total Price: {totalPrice}</div>
-//       <br />
-
+//       <div>Total Price: ${totalPrice}</div>
 //       <br />
 //       <div>
 //         <Link href="/">Back to Home page</Link>

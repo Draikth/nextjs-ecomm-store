@@ -36,7 +36,10 @@ export default function CheckoutForm() {
     <div>
       <form>
         <div>
+          <h2>Client Shipping Information</h2>
+          <br />
           <label htmlFor="First name">First name: </label>
+
           <input
             id="First name"
             data-test-id="checkout-first-name"
@@ -125,6 +128,8 @@ export default function CheckoutForm() {
             required
           />
         </div>
+        <br />
+        <h2>Client Credit Card Information</h2>
         <br />
         <div>
           <label htmlFor="credit card">Credit Card No: </label>
