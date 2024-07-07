@@ -10,8 +10,6 @@ export default async function CartForm() {
     return total + item.quantity * item.price;
   }, 0);
 
-  console.log(cartItems);
-
   return (
     <div>
       <h1>Shopping Cart</h1>

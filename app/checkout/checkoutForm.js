@@ -2,6 +2,7 @@
 
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
+import { clearCart } from '../../util/cart';
 
 export default function CheckoutForm() {
   const router = useRouter();
@@ -17,7 +18,7 @@ export default function CheckoutForm() {
   const [expiration, setExpiration] = useState('');
   const [security, setSecurity] = useState('');
 
-  function clearAllInputFields() {
+  async function clearAllInputFields() {
     setFirstName('');
     setLastName('');
     setEmail('');
@@ -28,6 +29,8 @@ export default function CheckoutForm() {
     setCreditCardNo('');
     setExpiration('');
     setSecurity('');
+
+    await clearCart();
 
     router.push('/thank-you');
   }

@@ -1,6 +1,7 @@
-import './globals.css';
+import './globals.scss';
 import localFont from 'next/font/local';
 import Link from 'next/link';
+import { getCookie } from '../util/cookies';
 
 const geistSans = localFont({
   src: './fonts/GeistVF.woff',
@@ -21,7 +22,19 @@ export const metadata = {
   description: 'Ecommerce project to simulate a store selling cookies',
 };
 
-export default function RootLayout({ children }) {
+export default async function RootLayout({ children }) {
+  const cartCookie = getCookie('Cart');
+  console.log('cart cookie', cartCookie);
+
+  const cartItems = (await cartCookie) ? JSON.parse(cartCookie) : [];
+  console.log('cart items', cartItems);
+  const totalItemsInCart = cartItems.reduce(
+    (total, item) => total + item.quantity,
+    0,
+  );
+
+  console.log('Total items in cart:', totalItemsInCart);
+
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
@@ -31,7 +44,13 @@ export default function RootLayout({ children }) {
               <Link href="/">Home</Link>
               <Link href="/about">About</Link>
               <Link href="/products">Products</Link>
-              <Link href="/cart">Shopping Cart</Link>
+              <Link href="/cart">
+                {' '}
+                {totalItemsInCart > 0 && (
+                  <div className="productnumber">{totalItemsInCart}</div>
+                )}
+                Shopping Cart
+              </Link>
               <Link href="/checkout">Checkout</Link>
             </div>
           </nav>

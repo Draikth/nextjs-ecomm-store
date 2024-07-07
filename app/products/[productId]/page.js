@@ -24,7 +24,7 @@ export default async function ProductPage(props) {
     notFound();
   }
 
-  console.log('props: ', singleProduct);
+  // console.log('props: ', singleProduct);
 
   return (
     <div>
