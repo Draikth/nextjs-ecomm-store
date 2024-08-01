@@ -42,6 +42,8 @@ nav {
 
   > div a {
     margin: 0.25rem;
+    display: flex;
+    align-items: center;
   }
 }
 
@@ -49,9 +51,25 @@ nav {
   background-color: rgb(109, 72, 9);
   color: white;
   border-radius: 50%;
-  padding-right: 4px;
-  padding-left: 4px;
+  padding: 0;
   margin-right: 6px;
   font-size: 16px;
   z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 24px; /* Ensures the circle shape */
+  height: 24px; /* Ensures the circle shape */
+  line-height: 24px;
 }
+
+// .productnumber {
+//   background-color: rgb(109, 72, 9);
+//   color: white;
+//   border-radius: 50%;
+//   padding-right: 4px;
+//   padding-left: 4px;
+//   margin-right: 6px;
+//   font-size: 16px;
+//   z-index: 2;
+// }

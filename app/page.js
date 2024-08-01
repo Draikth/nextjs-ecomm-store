@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <div>
       <h1>Welcome to Oma's Kitchen Bakery!</h1>
-      <p>Baked Goodies to remind you of your Oma! </p>
+      <p>Baked Goodies to remind You of your Oma! </p>
       <br />
       <div>
         <Image

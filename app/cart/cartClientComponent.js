@@ -34,7 +34,7 @@ export default function CartClientComponent({
               <p>{item.name}</p>
               {item.image ? (
                 <Image
-                  src={`/images/${item.image}.webp`}
+                  src={`/public/images/${item.image}.webp`}
                   alt={`product-${item.name}`}
                   width={150}
                   height={150}
